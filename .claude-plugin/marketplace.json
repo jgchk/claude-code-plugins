@@ -13,6 +13,12 @@
       "version": "1.0.0"
     },
     {
+      "name": "git-commits",
+      "description": "Writes high-quality Git commit messages following Conventional Commits and best practices",
+      "source": "./git-commits",
+      "version": "1.0.0"
+    },
+    {
       "name": "optimizing-plugins",
       "description": "Adds an /optimizing-plugin skill for creating, auditing, and optimizing Claude Code plugins",
       "source": "./optimizing-plugins",

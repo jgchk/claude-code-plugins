@@ -1,0 +1,6 @@
+{
+  "name": "git-commits",
+  "description": "Writes high-quality Git commit messages following Conventional Commits and best practices",
+  "version": "1.0.0",
+  "keywords": ["git", "commits", "conventional-commits"]
+}
