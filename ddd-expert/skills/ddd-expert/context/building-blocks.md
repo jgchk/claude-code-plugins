@@ -1,18 +1,5 @@
 # DDD Building Blocks (Tactical Patterns)
 
-## Contents
-- [Entities](#entities)
-- [Value Objects](#value-objects)
-- [Aggregates](#aggregates)
-- [Domain Services](#domain-services)
-- [Repositories](#repositories)
-- [Domain Events](#domain-events)
-- [Specifications](#specifications)
-- [Factories](#factories)
-- [Modules](#modules)
-
----
-
 ## Entities
 
 Objects defined by identity, not attributes. Two Entities with identical attributes but different IDs are different objects.

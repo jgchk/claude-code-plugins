@@ -1,15 +1,5 @@
 # Strategic Design Patterns
 
-## Contents
-- [Ubiquitous Language](#ubiquitous-language)
-- [Bounded Context](#bounded-context)
-- [Context Mapping](#context-mapping)
-- [Subdomains](#subdomains)
-- [Distillation](#distillation)
-- [Large-Scale Structure](#large-scale-structure)
-
----
-
 ## Ubiquitous Language
 
 A shared language between developers and domain experts, used in code, conversation, and documentation. The language IS the model.

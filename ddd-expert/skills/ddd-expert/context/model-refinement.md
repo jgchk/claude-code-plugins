@@ -1,16 +1,5 @@
 # Model Refinement
 
-## Contents
-- [Refactoring Toward Deeper Insight](#refactoring-toward-deeper-insight)
-- [Making Implicit Concepts Explicit](#making-implicit-concepts-explicit)
-- [Supple Design](#supple-design)
-- [Breakthrough Refactoring](#breakthrough-refactoring)
-- [Exploration Teams](#exploration-teams)
-- [Preserving Model Integrity](#preserving-model-integrity)
-- [Practical Refinement Process](#practical-refinement-process)
-
----
-
 ## Refactoring Toward Deeper Insight
 
 The most valuable refactorings discover better models, not just cleaner code.

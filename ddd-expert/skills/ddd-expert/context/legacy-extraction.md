@@ -1,15 +1,5 @@
 # Legacy Extraction
 
-## Contents
-- [Understanding the Legacy Landscape](#understanding-the-legacy-landscape)
-- [Anti-Corruption Layer](#anti-corruption-layer)
-- [Strangler Fig Pattern](#strangler-fig-pattern)
-- [Domain Mining Techniques](#domain-mining-techniques)
-- [Extraction Patterns](#extraction-patterns)
-- [Practical Extraction Process](#practical-extraction-process)
-
----
-
 ## Understanding the Legacy Landscape
 
 ### Archeology Phase
