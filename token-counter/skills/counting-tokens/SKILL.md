@@ -44,7 +44,7 @@ scripts/count-tokens.sh --file document.txt --json
 ## Requirements
 
 - `ANTHROPIC_API_KEY` environment variable set
-- `curl`, `base64` (standard on macOS/Linux)
+- `curl`, `python3` (standard on macOS/Linux)
 - `jq` optional (for prettier output)
 
 ## Model Selection

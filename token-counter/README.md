@@ -15,7 +15,7 @@ cp -r token-counter ~/.claude/plugins/
 - Supports text, PDFs, and images
 - System prompt inclusion
 - JSON output for scripting
-- No external dependencies (just curl and base64)
+- Minimal dependencies (curl, python3)
 
 ## Usage
 
@@ -29,7 +29,7 @@ The plugin adds a `counting-tokens` skill that Claude automatically triggers whe
 ## Requirements
 
 - `ANTHROPIC_API_KEY` environment variable
-- `curl`, `base64` (standard on macOS/Linux)
+- `curl`, `python3` (standard on macOS/Linux)
 - `jq` (optional, for prettier output)
 
 ## API Reference
