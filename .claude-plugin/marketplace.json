@@ -23,6 +23,12 @@
       "description": "Applies Anthropic's best practices for Claude Code skills. Use when creating, reviewing, or optimizing skills.",
       "source": "./optimizing-skills",
       "version": "1.0.0"
+    },
+    {
+      "name": "token-counter",
+      "description": "Provides exact token counts using Anthropic's Token Counting API. Triggers when users ask about token counts for text, files, or images.",
+      "source": "./token-counter",
+      "version": "1.0.0"
     }
   ]
 }
