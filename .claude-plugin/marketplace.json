@@ -28,7 +28,7 @@
       "name": "optimizing-skills",
       "description": "Applies Anthropic's best practices for Claude Code skills. Use when creating, reviewing, or optimizing skills.",
       "source": "./optimizing-skills",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "token-counter",
