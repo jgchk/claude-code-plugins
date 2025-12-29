@@ -2,6 +2,12 @@
 
 A comprehensive Claude Code plugin with all component types.
 
+## Table of Contents
+
+- [Directory Structure](#directory-structure)
+- [Files](#files)
+- [Key Points](#key-points)
+
 ## Directory Structure
 
 ```
