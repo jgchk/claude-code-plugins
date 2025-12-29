@@ -17,6 +17,12 @@
       "description": "Adds an /optimizing-plugin skill for creating, auditing, and optimizing Claude Code plugins",
       "source": "./optimizing-plugins",
       "version": "1.0.0"
+    },
+    {
+      "name": "optimizing-skills",
+      "description": "Applies Anthropic's best practices for Claude Code skills. Use when creating, reviewing, or optimizing skills.",
+      "source": "./optimizing-skills",
+      "version": "1.0.0"
     }
   ]
 }
