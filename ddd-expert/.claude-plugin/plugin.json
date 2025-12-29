@@ -1,0 +1,7 @@
+{
+  "name": "ddd-expert",
+  "description": "Domain-Driven Design guidance grounded in Eric Evans' Blue Book",
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": ["ddd", "domain-driven-design", "architecture", "modeling", "bounded-context", "aggregates"]
+}
