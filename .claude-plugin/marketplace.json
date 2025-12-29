@@ -16,7 +16,7 @@
       "name": "git-commits",
       "description": "Writes high-quality Git commit messages following Conventional Commits and best practices",
       "source": "./git-commits",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "optimizing-plugins",
