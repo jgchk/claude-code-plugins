@@ -58,6 +58,7 @@ Skip body for: typos, formatting, simple test additions, dependency bumps.
 ## Breaking Changes
 
 When committing breaking changes:
+
 1. Add an exclamation mark after type/scope (e.g., `feat(api)!: change response format`)
 2. Include `BREAKING CHANGE:` footer with migration details
 
@@ -66,14 +67,17 @@ When committing breaking changes:
 ```
 /commit
 ```
+
 Analyzes staged changes and creates an appropriate commit.
 
 ```
 /commit fix the login timeout issue
 ```
+
 Creates a fix commit with the hint guiding the message.
 
 ```
 /commit feat(auth)
 ```
+
 Creates a feature commit scoped to auth.
