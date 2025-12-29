@@ -1,0 +1,16 @@
+{
+  "name": "jake-claude-code-plugins",
+  "description": "Local collection of Claude Code plugins",
+  "owner": {
+    "name": "Local",
+    "email": ""
+  },
+  "plugins": [
+    {
+      "name": "optimizing-plugins",
+      "description": "Adds an /optimizing-plugin skill for creating, auditing, and optimizing Claude Code plugins",
+      "source": "./optimizing-plugins",
+      "version": "1.0.0"
+    }
+  ]
+}

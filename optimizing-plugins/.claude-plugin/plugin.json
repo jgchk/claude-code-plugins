@@ -1,0 +1,5 @@
+{
+  "name": "optimizing-plugins",
+  "description": "Adds an /optimizing-plugin skill for creating, auditing, and optimizing Claude Code plugins",
+  "version": "1.0.0"
+}
