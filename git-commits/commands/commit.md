@@ -58,7 +58,7 @@ Skip body for: typos, formatting, simple test additions, dependency bumps.
 ## Breaking Changes
 
 When committing breaking changes:
-1. Add `!` after type/scope: `feat(api)!: change response format`
+1. Add an exclamation mark after type/scope (e.g., `feat(api)!: change response format`)
 2. Include `BREAKING CHANGE:` footer with migration details
 
 ## Examples
