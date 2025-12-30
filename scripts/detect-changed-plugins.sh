@@ -20,11 +20,14 @@ for file in $files; do
   # Skip plugin.json files to prevent loops
   [[ "$file" == *"/plugin.json" ]] && continue
 
-  # Get top-level directory
-  plugin=$(echo "$file" | cut -d'/' -f1)
+  # Only consider files in the plugins/ directory
+  [[ "$file" != plugins/* ]] && continue
+
+  # Get plugin name (second path component: plugins/<plugin-name>/...)
+  plugin=$(echo "$file" | cut -d'/' -f2)
 
   # Check if it's a plugin directory
-  [[ -f "$REPO_ROOT/$plugin/.claude-plugin/plugin.json" ]] || continue
+  [[ -f "$REPO_ROOT/plugins/$plugin/.claude-plugin/plugin.json" ]] || continue
 
   # Add to list if not already present
   [[ " $plugins " != *" $plugin "* ]] && plugins="$plugins $plugin"

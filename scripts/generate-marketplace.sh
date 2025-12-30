@@ -18,13 +18,10 @@ mkdir -p "$MARKETPLACE_DIR"
 plugins_json="["
 first=true
 
-# Find all directories with .claude-plugin/plugin.json
-for dir in "$REPO_ROOT"/*/; do
+# Find all plugin directories with .claude-plugin/plugin.json
+for dir in "$REPO_ROOT"/plugins/*/; do
   dir_name="$(basename "$dir")"
   plugin_file="$dir/.claude-plugin/plugin.json"
-
-  # Skip hidden directories
-  [[ "$dir_name" == .* ]] && continue
 
   # Skip if no plugin.json
   [[ ! -f "$plugin_file" ]] && {
@@ -55,7 +52,7 @@ for dir in "$REPO_ROOT"/*/; do
     {
       \"name\": \"$name\",
       \"description\": \"$description\",
-      \"source\": \"./$dir_name\""
+      \"source\": \"./plugins/$dir_name\""
 
   # Add version if present
   if [[ -n "$version" ]]; then

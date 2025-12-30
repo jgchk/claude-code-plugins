@@ -9,20 +9,20 @@
     {
       "name": "ddd-expert",
       "description": "Domain-Driven Design guidance grounded in Eric Evans' Blue Book",
-      "source": "./ddd-expert",
-      "version": "1.4.1"
+      "source": "./plugins/ddd-expert",
+      "version": "1.4.2"
     },
     {
       "name": "git-commits",
       "description": "Writes high-quality Git commit messages following Conventional Commits and best practices",
-      "source": "./git-commits",
-      "version": "1.1.3"
+      "source": "./plugins/git-commits",
+      "version": "1.1.4"
     },
     {
       "name": "token-counter",
       "description": "Provides exact token counts using Anthropic's Token Counting API. Triggers when users ask about token counts for text, files, or images.",
-      "source": "./token-counter",
-      "version": "1.2.0"
+      "source": "./plugins/token-counter",
+      "version": "1.2.1"
     }
   ]
 }

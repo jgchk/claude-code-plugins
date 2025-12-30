@@ -5,7 +5,7 @@ Domain-Driven Design guidance grounded in Eric Evans' "Domain-Driven Design: Tac
 ## Installation
 
 ```bash
-claude plugins add /path/to/ddd-expert
+claude plugins add /path/to/claude-code-plugins/plugins/ddd-expert
 ```
 
 ## Usage

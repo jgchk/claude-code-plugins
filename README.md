@@ -44,7 +44,7 @@ claude plugins:add jake-claude-code-plugins/<plugin-name>
 Or install directly from a local path:
 
 ```bash
-claude plugins:add /path/to/claude-code-plugins/<plugin-name>
+claude plugins:add /path/to/claude-code-plugins/plugins/<plugin-name>
 ```
 
 ## Development
@@ -60,7 +60,7 @@ cd claude-code-plugins
 
 ### Creating a Plugin
 
-1. Create a directory at the repo root
+1. Create a directory in `plugins/`
 2. Add `.claude-plugin/plugin.json`:
    ```json
    {

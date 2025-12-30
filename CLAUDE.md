@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a monorepo containing Claude Code plugins. Each subdirectory is an independent plugin with its own `.claude-plugin/plugin.json` manifest.
+This is a monorepo containing Claude Code plugins. Plugins are located in the `plugins/` directory, each with its own `.claude-plugin/plugin.json` manifest.
 
 ## Current Plugins
 
@@ -22,7 +22,7 @@ This is a monorepo containing Claude Code plugins. Each subdirectory is an indep
 
 Each plugin follows this structure:
 ```
-plugin-name/
+plugins/plugin-name/
 ├── .claude-plugin/
 │   └── plugin.json      # Manifest with name, description, version
 ├── skills/
@@ -51,7 +51,7 @@ The commit-msg hook (`scripts/bump-versions.sh`) handles this locally. GitHub Ac
 
 ## Creating a New Plugin
 
-1. Create a new directory at the repository root
+1. Create a new directory in `plugins/`
 2. Add `.claude-plugin/plugin.json` with name, description, version
 3. Add skills in `skills/skill-name/SKILL.md`
 4. Add commands in `commands/command-name.md`

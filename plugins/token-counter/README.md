@@ -6,7 +6,7 @@ A Claude Code plugin for counting exact tokens using Anthropic's Token Counting 
 
 ```bash
 # Clone or copy this plugin to your Claude Code plugins directory
-cp -r token-counter ~/.claude/plugins/
+cp -r plugins/token-counter ~/.claude/plugins/
 ```
 
 ## Features

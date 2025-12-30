@@ -1,7 +1,7 @@
 {
   "name": "token-counter",
   "description": "Provides exact token counts using Anthropic's Token Counting API. Triggers when users ask about token counts for text, files, or images.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": {
     "name": "Jake Cheek"
   },

@@ -11,7 +11,7 @@ bump_type="$1"
 shift
 
 for plugin in "$@"; do
-  plugin_json="$REPO_ROOT/$plugin/.claude-plugin/plugin.json"
+  plugin_json="$REPO_ROOT/plugins/$plugin/.claude-plugin/plugin.json"
   [[ -f "$plugin_json" ]] || continue
 
   # Extract current version

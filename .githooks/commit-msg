@@ -20,7 +20,7 @@ if [[ "$bump_type" != "none" && -n "$plugins" ]]; then
 
   # Stage bumped plugin.json files
   for plugin in $plugins; do
-    git add "$REPO_ROOT/$plugin/.claude-plugin/plugin.json"
+    git add "$REPO_ROOT/plugins/$plugin/.claude-plugin/plugin.json"
   done
 fi
 

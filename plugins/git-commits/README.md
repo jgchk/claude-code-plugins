@@ -13,7 +13,7 @@ A Claude Code plugin for writing high-quality Git commit messages following Conv
 ## Installation
 
 ```bash
-claude plugins:add /path/to/git-commits
+claude plugins:add /path/to/claude-code-plugins/plugins/git-commits
 ```
 
 ## Usage
