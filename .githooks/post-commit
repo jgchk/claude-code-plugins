@@ -8,8 +8,9 @@ set -euo pipefail
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 
 # Guard: skip if this is already a version bump commit (prevent infinite loop)
+# Uses prefix match to handle both local and CI commits
 last_msg=$(git log -1 --format=%s)
-if [[ "$last_msg" == "chore: bump plugin versions" ]]; then
+if [[ "$last_msg" == chore:\ bump\ plugin\ versions* ]]; then
   exit 0
 fi
 
