@@ -33,3 +33,4 @@ Includes curated guides on commit message writing from:
 - Linux Kernel guidelines
 - Pro Git book
 - Conventional Commits specification
+- Git documentation
