@@ -23,12 +23,12 @@ You can also invoke it directly:
 
 ### Commands
 
-**`/audit [path]`** - Perform a comprehensive domain model audit
+**`/ddd-audit [path]`** - Perform a comprehensive domain model audit
 
 ```
-/audit                    # Audit entire repository
-/audit src/domain         # Audit specific directory
-/audit src/orders         # Focus on a bounded context
+/ddd-audit                    # Audit entire repository
+/ddd-audit src/domain         # Audit specific directory
+/ddd-audit src/orders         # Focus on a bounded context
 ```
 
 The audit analyzes layered architecture, aggregate boundaries, entity/value object classification, domain services, repositories, ubiquitous language, bounded context boundaries, and common anti-patterns.

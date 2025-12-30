@@ -1,5 +1,5 @@
 ---
-name: audit
+name: ddd-audit
 description: Audit domain model for DDD patterns, anti-patterns, and improvement opportunities
 argument-hint: "[path/to/audit]"
 allowed-tools: Read, Glob, Grep, Bash, Task
