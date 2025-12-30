@@ -20,23 +20,23 @@ jobs:
       - name: Parse commit type
         id: parse
         run: |
-          bump_type=$(./parse-commit-type.sh <<< "${{ github.event.head_commit.message }}")
+          bump_type=$(./scripts/parse-commit-type.sh <<< "${{ github.event.head_commit.message }}")
           echo "bump_type=$bump_type" >> $GITHUB_OUTPUT
 
       - name: Detect changed plugins
         if: steps.parse.outputs.bump_type != 'none'
         id: detect
         run: |
-          plugins=$(./detect-changed-plugins.sh --from-commit ${{ github.sha }})
+          plugins=$(./scripts/detect-changed-plugins.sh --from-commit ${{ github.sha }})
           echo "plugins=$plugins" >> $GITHUB_OUTPUT
 
       - name: Bump versions
         if: steps.parse.outputs.bump_type != 'none' && steps.detect.outputs.plugins != ''
         run: |
-          ./bump-versions.sh ${{ steps.parse.outputs.bump_type }} ${{ steps.detect.outputs.plugins }}
+          ./scripts/bump-versions.sh ${{ steps.parse.outputs.bump_type }} ${{ steps.detect.outputs.plugins }}
 
       - name: Generate marketplace
-        run: ./generate-marketplace.sh
+        run: ./scripts/generate-marketplace.sh
 
       - name: Check for changes
         id: changes

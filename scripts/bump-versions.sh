@@ -5,13 +5,13 @@
 #
 
 set -euo pipefail
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 bump_type="$1"
 shift
 
 for plugin in "$@"; do
-  plugin_json="$SCRIPT_DIR/$plugin/.claude-plugin/plugin.json"
+  plugin_json="$REPO_ROOT/$plugin/.claude-plugin/plugin.json"
   [[ -f "$plugin_json" ]] || continue
 
   # Extract current version

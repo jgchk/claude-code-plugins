@@ -7,8 +7,8 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MARKETPLACE_DIR="$SCRIPT_DIR/.claude-plugin"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+MARKETPLACE_DIR="$REPO_ROOT/.claude-plugin"
 MARKETPLACE_FILE="$MARKETPLACE_DIR/marketplace.json"
 
 # Create .claude-plugin directory if needed
@@ -19,7 +19,7 @@ plugins_json="["
 first=true
 
 # Find all directories with .claude-plugin/plugin.json
-for dir in "$SCRIPT_DIR"/*/; do
+for dir in "$REPO_ROOT"/*/; do
   dir_name="$(basename "$dir")"
   plugin_file="$dir/.claude-plugin/plugin.json"
 

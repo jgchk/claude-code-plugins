@@ -5,7 +5,7 @@
 # Output: space-separated plugin names
 #
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 if [[ "${1:-}" == "--from-commit" ]]; then
   # From specific commit (for CI)
@@ -24,7 +24,7 @@ for file in $files; do
   plugin=$(echo "$file" | cut -d'/' -f1)
 
   # Check if it's a plugin directory
-  [[ -f "$SCRIPT_DIR/$plugin/.claude-plugin/plugin.json" ]] || continue
+  [[ -f "$REPO_ROOT/$plugin/.claude-plugin/plugin.json" ]] || continue
 
   # Add to list if not already present
   [[ " $plugins " != *" $plugin "* ]] && plugins="$plugins $plugin"
