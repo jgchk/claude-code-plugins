@@ -1,0 +1,30 @@
+name: Update Marketplace
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-marketplace:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate marketplace.json
+        run: ./generate-marketplace.sh
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet .claude-plugin/marketplace.json || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .claude-plugin/marketplace.json
+          git commit -m "chore: update marketplace.json"
+          git push
