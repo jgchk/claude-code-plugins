@@ -10,25 +10,13 @@
       "name": "ddd-expert",
       "description": "Domain-Driven Design guidance grounded in Eric Evans' Blue Book",
       "source": "./ddd-expert",
-      "version": "1.2.0"
+      "version": "1.3.0"
     },
     {
       "name": "git-commits",
       "description": "Writes high-quality Git commit messages following Conventional Commits and best practices",
       "source": "./git-commits",
       "version": "1.1.3"
-    },
-    {
-      "name": "optimizing-plugins",
-      "description": "Adds an /optimizing-plugin skill for creating, auditing, and optimizing Claude Code plugins",
-      "source": "./optimizing-plugins",
-      "version": "1.0.0"
-    },
-    {
-      "name": "optimizing-skills",
-      "description": "Applies Anthropic's best practices for Claude Code skills. Use when creating, reviewing, or optimizing skills.",
-      "source": "./optimizing-skills",
-      "version": "1.1.0"
     },
     {
       "name": "token-counter",

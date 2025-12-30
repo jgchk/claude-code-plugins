@@ -21,6 +21,18 @@ You can also invoke it directly:
 /ddd-expert
 ```
 
+### Commands
+
+**`/audit [path]`** - Perform a comprehensive domain model audit
+
+```
+/audit                    # Audit entire repository
+/audit src/domain         # Audit specific directory
+/audit src/orders         # Focus on a bounded context
+```
+
+The audit analyzes layered architecture, aggregate boundaries, entity/value object classification, domain services, repositories, ubiquitous language, bounded context boundaries, and common anti-patterns.
+
 ## What's Included
 
 ### Operating Modes

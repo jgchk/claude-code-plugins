@@ -1,8 +1,8 @@
 ---
 name: ddd-expert
-version: "1.1.0"
+version: "1.2.0"
 description: |
-  Provides Domain-Driven Design guidance grounded in Eric Evans' Blue Book. Use when designing domain models, defining bounded contexts, structuring aggregates, or extracting models from legacy code. Triggers on: "design a domain model for...", "help me with bounded contexts", "how should I structure aggregates", "extract model from legacy", questions about DDD patterns, ubiquitous language, or context mapping.
+  Provides Domain-Driven Design guidance grounded in Eric Evans' Blue Book. Use when the user asks about domain modeling, bounded contexts, aggregates, entities, value objects, domain events, ubiquitous language, or strategic/tactical DDD patterns. Also triggers when: designing complex business systems, asking "how should I model this domain?", struggling with entity complexity or tangled dependencies, establishing clear system boundaries, refactoring toward cleaner domain architecture, or discussing event sourcing, CQRS, and anti-corruption layers. Triggers on phrases like: "design a domain model for...", "help me with bounded contexts", "how should I structure aggregates", "extract model from legacy", "my entities are getting too complex", "how do I handle complex business rules".
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Task
 ---
 
