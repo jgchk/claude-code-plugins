@@ -35,16 +35,24 @@ Exact token counts using Anthropic's Token Counting API.
 
 ## Installation
 
-Install from this marketplace:
+First, add the marketplace:
 
 ```bash
-claude plugins:add jake-claude-code-plugins/<plugin-name>
+/plugin marketplace add jgchk/claude-code-plugins
+```
+
+Then install individual plugins:
+
+```bash
+/plugin install ddd-expert@jake-claude-code-plugins
+/plugin install git-commits@jake-claude-code-plugins
+/plugin install token-counter@jake-claude-code-plugins
 ```
 
 Or install directly from a local path:
 
 ```bash
-claude plugins:add /path/to/claude-code-plugins/plugins/<plugin-name>
+/plugin install /path/to/claude-code-plugins/plugins/<plugin-name>
 ```
 
 ## Development

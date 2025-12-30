@@ -75,10 +75,9 @@ plugin_count=$(echo "$plugins_json" | grep -c '"name"' || echo 0)
 cat >"$MARKETPLACE_FILE" <<EOF
 {
   "name": "jake-claude-code-plugins",
-  "description": "Local collection of Claude Code plugins",
+  "description": "A personal collection of Claude Code plugins",
   "owner": {
-    "name": "Local",
-    "email": ""
+    "name": "Jake Cheek"
   },
   "plugins": $plugins_json
 }
