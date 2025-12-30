@@ -57,6 +57,26 @@ Legacy System (Don't touch, don't trust)
 
 **Principles**: New model never sees legacy types. All interaction through ACL. ACL is part of new system. ACL evolves as understanding improves.
 
+### Implementation Example
+
+```java
+// Anticorruption Layer for legacy cargo tracking
+public class LegacyCargoTrackingTranslator {
+    private LegacySystem legacy;
+
+    public Cargo findCargo(TrackingId id) {
+        LegacyShipmentRecord record = legacy.getShipment(id.toString());
+        return translateToCargo(record);
+    }
+
+    private Cargo translateToCargo(LegacyShipmentRecord record) {
+        // Translate legacy concepts to our model
+        // Handle inconsistencies and missing data
+        // Map legacy status codes to our domain events
+    }
+}
+```
+
 ### When ACL Complexity Explodes
 
 **Signs**: Translation logic rivals domain logic. Many special cases. Constant changes.
@@ -106,6 +126,15 @@ Strangler Fig wins: Value delivered incrementally. Risk contained. Learning impr
 | Transaction boundaries, complex objects with collections | Aggregate candidates |
 | Notification triggers, audit entries, state callbacks | Domain Event candidates |
 
+### PCB Design Example (from Blue Book)
+
+In a project to create software for designing printed circuit boards, the initial model merely captured component types and their connections. After extensive knowledge crunching with engineers, a breakthrough came: *nets* (groups of electrically connected components) were the true domain concept.
+
+- **Before**: Components with pins that connect
+- **After**: Nets that traverse components, with topology that could be analyzed
+
+The model could now express rules about signal integrity, implement design rule checking, and simulate behavior—because it captured how engineers actually thought about the problem.
+
 ### Interview Techniques
 
 **Domain experts**: "Walk me through [process]", "What could go wrong?", "What do you call this?", "Why is this rule in place?"
@@ -152,3 +181,41 @@ Strangler Fig wins: Value delivered incrementally. Risk contained. Learning impr
 - **ACL takes the pain** — Keep domain clean
 - **Expect iteration** — First extraction teaches you
 - **Celebrate small wins** — Extraction is long-term work
+
+---
+
+## Time Zone Example (Generic Subdomain Lesson)
+
+Two projects needed time zone handling:
+
+**Project A (Shipping)**:
+- Clear need for conversion (international scheduling)
+- Assigned contractor (temporary, doesn't need domain knowledge)
+- Based on existing BSD Unix implementation
+- Result: Functional time zone support
+
+**Project B (Insurance)**:
+- Vague need (event timestamps)
+- Assigned junior developer... who pulled in senior developer
+- Tried to build general solution a priori
+- Result: Complex, unused code; Core Domain neglected
+
+**Lesson**: Project A treated time zones as a Generic Subdomain. Project B let it distract from the Core. When extracting from legacy, identify what's Core vs Generic—don't gold-plate non-differentiating parts.
+
+---
+
+## Strategic Decision Making for Legacy
+
+**Six Essentials**:
+
+1. **Decisions must reach the entire team** — Everyone must know and follow the strategy. Authority matters less than actual adoption.
+
+2. **Process must absorb feedback** — Application developers have deepest domain knowledge. Architecture teams need tight feedback loops with development.
+
+3. **Plan must allow for evolution** — Don't set highest-level decisions in stone. EVOLVING ORDER over rigid blueprints.
+
+4. **Don't siphon all best talent to architecture** — Strong designers needed on application teams. Domain knowledge needed on strategy teams.
+
+5. **Strategic design requires minimalism** — Every element had better be worth the cost. Ill-fitting structure causes more harm than no structure.
+
+6. **Objects are specialists; developers are generalists** — Let people cross boundaries. Discourage over-specialization.
