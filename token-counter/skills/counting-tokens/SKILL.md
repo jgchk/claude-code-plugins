@@ -17,20 +17,22 @@ Get exact token counts using Anthropic's official Token Counting API.
 
 ## Usage
 
-Run `scripts/count-tokens.sh` from this skill's directory:
+Run `scripts/count-tokens.sh` from this skill's directory.
+
+**Important**: Always pass `--model` with your current model ID to ensure accurate token counts for the model being used.
 
 ```bash
-# Count tokens for text
-scripts/count-tokens.sh --text "Your text here"
+# Count tokens for text (always include your current model)
+scripts/count-tokens.sh --text "Your text here" --model <your-current-model>
 
 # Count tokens for a file
-scripts/count-tokens.sh --file /path/to/document.pdf
+scripts/count-tokens.sh --file /path/to/document.pdf --model <your-current-model>
 
 # Include system prompt in count
-scripts/count-tokens.sh --text "Hello" --system "You are helpful"
+scripts/count-tokens.sh --text "Hello" --system "You are helpful" --model <your-current-model>
 
 # JSON output for programmatic use
-scripts/count-tokens.sh --file document.txt --json
+scripts/count-tokens.sh --file document.txt --json --model <your-current-model>
 ```
 
 ## Supported Content Types
@@ -49,7 +51,7 @@ scripts/count-tokens.sh --file document.txt --json
 
 ## Model Selection
 
-Default model is `claude-sonnet-4-5`. Override with `--model`:
+You should always pass `--model` with your current model ID to get accurate counts. If omitted, defaults to `claude-sonnet-4-5`.
 
 ```bash
 scripts/count-tokens.sh --text "Hello" --model claude-opus-4-5

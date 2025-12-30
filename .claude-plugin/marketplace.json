@@ -22,7 +22,7 @@
       "name": "token-counter",
       "description": "Provides exact token counts using Anthropic's Token Counting API. Triggers when users ask about token counts for text, files, or images.",
       "source": "./token-counter",
-      "version": "1.0.1"
+      "version": "1.1.0"
     }
   ]
 }
