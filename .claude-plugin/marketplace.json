@@ -10,7 +10,7 @@
       "name": "ddd-expert",
       "description": "Domain-Driven Design guidance grounded in Eric Evans' Blue Book",
       "source": "./ddd-expert",
-      "version": "1.4.0"
+      "version": "1.4.1"
     },
     {
       "name": "git-commits",
