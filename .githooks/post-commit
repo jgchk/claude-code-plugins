@@ -1,0 +1,50 @@
+#!/bin/bash
+#
+# Post-commit hook: bump versions and regenerate marketplace.
+# Creates a separate commit for version bumps to avoid history rewriting.
+#
+
+set -euo pipefail
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+# Guard: skip if this is already a version bump commit (prevent infinite loop)
+last_msg=$(git log -1 --format=%s)
+if [[ "$last_msg" == "chore: bump plugin versions" ]]; then
+  exit 0
+fi
+
+# Get bump type from the commit message
+bump_type=$(git log -1 --format=%B | "$REPO_ROOT/scripts/parse-commit-type.sh")
+
+# Get changed plugins from this commit (excluding plugin.json files)
+plugins=$("$REPO_ROOT/scripts/detect-changed-plugins.sh" --from-commit HEAD)
+
+# Track if we made any changes
+changes_made=false
+
+# Bump versions if conventional commit AND plugins changed
+if [[ "$bump_type" != "none" && -n "$plugins" ]]; then
+  "$REPO_ROOT/scripts/bump-versions.sh" "$bump_type" $plugins
+
+  # Stage bumped plugin.json files
+  for plugin in $plugins; do
+    git add "$REPO_ROOT/plugins/$plugin/.claude-plugin/plugin.json"
+  done
+  changes_made=true
+fi
+
+# Regenerate marketplace (handles: new plugins, description changes, version bumps)
+"$REPO_ROOT/scripts/generate-marketplace.sh"
+
+# Check if marketplace.json changed
+if ! git diff --quiet "$REPO_ROOT/.claude-plugin/marketplace.json" 2>/dev/null; then
+  git add "$REPO_ROOT/.claude-plugin/marketplace.json"
+  changes_made=true
+fi
+
+# Create version bump commit if there were changes
+if [[ "$changes_made" == "true" ]]; then
+  git commit -m "chore: bump plugin versions" --no-verify
+fi
+
+exit 0

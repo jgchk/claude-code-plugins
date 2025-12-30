@@ -43,11 +43,11 @@ Versions are automatically bumped on commit based on Conventional Commits:
 - `fix`, `perf`, `refactor`, `docs`, `style`, `test`, `build`, `ci`, `chore`: patch bump
 - `BREAKING CHANGE` or `!` suffix: major bump
 
-The commit-msg hook (`scripts/bump-versions.sh`) handles this locally. GitHub Actions handles CI.
+The post-commit hook handles this locally, creating a separate "chore: bump plugin versions" commit. GitHub Actions handles CI.
 
 ### Marketplace Generation
 
-`.claude-plugin/marketplace.json` is auto-generated from all plugins by `scripts/generate-marketplace.sh`. This runs on every commit via the commit-msg hook.
+`.claude-plugin/marketplace.json` is auto-generated from all plugins by `scripts/generate-marketplace.sh`. This runs on every commit via the post-commit hook.
 
 ## Creating a New Plugin
 
