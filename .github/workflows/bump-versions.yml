@@ -1,0 +1,53 @@
+name: Bump Versions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  bump-versions:
+    # Skip bot commits to prevent loops
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need parent commit for diff
+
+      - name: Parse commit type
+        id: parse
+        run: |
+          bump_type=$(./parse-commit-type.sh <<< "${{ github.event.head_commit.message }}")
+          echo "bump_type=$bump_type" >> $GITHUB_OUTPUT
+
+      - name: Detect changed plugins
+        if: steps.parse.outputs.bump_type != 'none'
+        id: detect
+        run: |
+          plugins=$(./detect-changed-plugins.sh --from-commit ${{ github.sha }})
+          echo "plugins=$plugins" >> $GITHUB_OUTPUT
+
+      - name: Bump versions
+        if: steps.parse.outputs.bump_type != 'none' && steps.detect.outputs.plugins != ''
+        run: |
+          ./bump-versions.sh ${{ steps.parse.outputs.bump_type }} ${{ steps.detect.outputs.plugins }}
+
+      - name: Generate marketplace
+        run: ./generate-marketplace.sh
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: bump plugin versions [skip ci]"
+          git push

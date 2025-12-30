@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# Bump versions based on conventional commit, then regenerate marketplace.
+# This is the single source of truth for marketplace generation.
+#
+
+set -euo pipefail
+COMMIT_MSG_FILE="$1"
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+# Get bump type from commit message
+bump_type=$("$REPO_ROOT/parse-commit-type.sh" < "$COMMIT_MSG_FILE")
+
+# Get changed plugins (excluding plugin.json files)
+plugins=$("$REPO_ROOT/detect-changed-plugins.sh")
+
+# Bump versions if conventional commit AND plugins changed
+if [[ "$bump_type" != "none" && -n "$plugins" ]]; then
+  "$REPO_ROOT/bump-versions.sh" "$bump_type" $plugins
+
+  # Stage bumped plugin.json files
+  for plugin in $plugins; do
+    git add "$REPO_ROOT/$plugin/.claude-plugin/plugin.json"
+  done
+fi
+
+# ALWAYS regenerate marketplace (whether versions bumped or not)
+# This handles: new plugins added, descriptions changed, versions bumped, etc.
+"$REPO_ROOT/generate-marketplace.sh"
+git add "$REPO_ROOT/.claude-plugin/marketplace.json"
+
+exit 0
