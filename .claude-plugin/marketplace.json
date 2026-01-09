@@ -22,6 +22,12 @@
       "description": "Provides exact token counts using Anthropic's Token Counting API. Triggers when users ask about token counts for text, files, or images.",
       "source": "./plugins/token-counter",
       "version": "1.2.1"
+    },
+    {
+      "name": "weeknotes",
+      "description": "Draft and write weeknotes - regular team communication about work in progress. Based on Giles Turnbull's weeknotes methodology.",
+      "source": "./plugins/weeknotes",
+      "version": "0.2.0"
     }
   ]
 }
