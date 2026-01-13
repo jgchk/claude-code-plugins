@@ -1,0 +1,27 @@
+{
+  "description": "Automatic reflection on session end when enabled",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if auto-reflection is enabled by reading .claude/reflect.local.md. If the file exists and has 'enabled: true' in the YAML frontmatter, analyze this conversation for learnings (corrections, explicit instructions, successful patterns) and propose skill updates following the reflect skill guidelines. Show diffs and ask for approval before making any changes. If the file doesn't exist or enabled is false, do nothing and exit silently without any output."
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if auto-reflection is enabled by reading .claude/reflect.local.md. If the file exists and has 'enabled: true' in the YAML frontmatter, analyze this subagent's conversation for learnings (corrections, explicit instructions, successful patterns) and propose skill updates following the reflect skill guidelines. Show diffs and ask for approval before making any changes. If the file doesn't exist or enabled is false, do nothing and exit silently without any output."
+          }
+        ]
+      }
+    ]
+  }
+}
