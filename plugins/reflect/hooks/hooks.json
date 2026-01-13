@@ -7,7 +7,11 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Check if auto-reflection is enabled by reading .claude/reflect.local.md. If the file exists and has 'enabled: true' in the YAML frontmatter, analyze this conversation for learnings (corrections, explicit instructions, successful patterns) and propose skill updates following the reflect skill guidelines. Show diffs and ask for approval before making any changes. If the file doesn't exist or enabled is false, do nothing and exit silently without any output."
+            "condition": {
+              "operator": "file-exists",
+              "file": ".claude/reflect.local.md"
+            },
+            "prompt": "Auto-reflection hook triggered. Read .claude/reflect.local.md and check if 'enabled: true' is in the YAML frontmatter. If enabled is true, analyze this conversation for learnings (corrections, explicit instructions, successful patterns) and propose skill updates following the reflect skill guidelines. Show diffs and ask for approval before making any changes. If enabled is false or not set, respond only with: 'Auto-reflection is disabled.'"
           }
         ]
       }
@@ -18,7 +22,11 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Check if auto-reflection is enabled by reading .claude/reflect.local.md. If the file exists and has 'enabled: true' in the YAML frontmatter, analyze this subagent's conversation for learnings (corrections, explicit instructions, successful patterns) and propose skill updates following the reflect skill guidelines. Show diffs and ask for approval before making any changes. If the file doesn't exist or enabled is false, do nothing and exit silently without any output."
+            "condition": {
+              "operator": "file-exists",
+              "file": ".claude/reflect.local.md"
+            },
+            "prompt": "Auto-reflection hook triggered. Read .claude/reflect.local.md and check if 'enabled: true' is in the YAML frontmatter. If enabled is true, analyze this subagent's conversation for learnings (corrections, explicit instructions, successful patterns) and propose skill updates following the reflect skill guidelines. Show diffs and ask for approval before making any changes. If enabled is false or not set, respond only with: 'Auto-reflection is disabled.'"
           }
         ]
       }
