@@ -18,6 +18,12 @@
       "version": "1.1.5"
     },
     {
+      "name": "reflect",
+      "description": "Self-improving skills through conversation reflection",
+      "source": "./plugins/reflect",
+      "version": "0.1.0"
+    },
+    {
       "name": "token-counter",
       "description": "Provides exact token counts using Anthropic's Token Counting API. Triggers when users ask about token counts for text, files, or images.",
       "source": "./plugins/token-counter",
@@ -27,7 +33,7 @@
       "name": "weeknotes",
       "description": "Draft and write weeknotes - regular team communication about work in progress. Based on Giles Turnbull's weeknotes methodology.",
       "source": "./plugins/weeknotes",
-      "version": "0.2.0"
+      "version": "0.2.1"
     }
   ]
 }
